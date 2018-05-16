@@ -1,5 +1,6 @@
 package br.com.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,4 +19,9 @@ public class CategoriaService {
 		Optional<Categoria> obj = categoriaRepository.findById(id);
 		return obj.orElse(null);
 	}
+	
+	public void salvarTodos(List<Categoria> listaCategorias) {
+		categoriaRepository.saveAll(listaCategorias);
+	}
+	
 }
