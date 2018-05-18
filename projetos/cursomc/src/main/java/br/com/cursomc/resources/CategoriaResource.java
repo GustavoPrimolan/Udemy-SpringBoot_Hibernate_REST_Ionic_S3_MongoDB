@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.cursomc.domain.Categoria;
 import br.com.cursomc.services.CategoriaService;
+import javassist.tools.rmi.ObjectNotFoundException;
 
 //CONTROLADOR REST E RESPONDERÁ PELO END POINT /CATEGORIAS
 @RestController
