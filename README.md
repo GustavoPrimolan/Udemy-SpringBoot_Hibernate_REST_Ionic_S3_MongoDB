@@ -1,4 +1,4 @@
-<p><a href="materias de apoio/02-implementacao-de-modelo-conceitual.pdf" target="_blank">Implementação do Modelo Conceitual</a></p>
+<p><a href="materiais de apoio/02-implementacao-de-modelo-conceitual.pdf" target="_blank">Implementação do Modelo Conceitual</a></p>
 
 -------------------------------------------------------------------------------
 <h1>Seção 01 - Introdução</h1>
