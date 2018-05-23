@@ -22,7 +22,7 @@ public class Categoria implements Serializable{
 	
 	private String nome;
 	
-	@JsonManagedReference //COLOCA A ANOTAÇÃO JSON PARA O LADO QUE VOCÊ DESEJA QUE VENHA OS DADOS
+	//@JsonManagedReference //COLOCA A ANOTAÇÃO JSON PARA O LADO QUE VOCÊ DESEJA QUE VENHA OS DADOS
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	

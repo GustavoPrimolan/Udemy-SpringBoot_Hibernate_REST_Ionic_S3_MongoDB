@@ -31,11 +31,11 @@ public class Pedido implements Serializable{
 	private Date instante;
 	
 	//CASCADE É NECESSÁRIO, POIS OCORRE UM ERRO DE QUANDO SALVAR UM PEDIDO E SEU PAGAMENTO
-	@JsonManagedReference
+	//@JsonManagedReference
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
 	private Pagamento pagamento;
 	
-	@JsonManagedReference
+	//@JsonManagedReference
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
