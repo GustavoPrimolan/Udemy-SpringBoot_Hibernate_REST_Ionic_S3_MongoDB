@@ -25,6 +25,12 @@ public class CategoriaService {
 	public void salvarTodos(List<Categoria> listaCategorias) {
 		categoriaRepository.saveAll(listaCategorias);
 	}
+
+	public Categoria insert(Categoria obj) {
+		//TEM QUE SER NULO, SE NÃO ATUALIZA E NÃO INSERE
+		obj.setId(null);
+		return categoriaRepository.save(obj);
+	}
 	
 	
 }
