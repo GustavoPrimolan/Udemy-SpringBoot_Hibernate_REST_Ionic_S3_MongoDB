@@ -26,8 +26,8 @@ public class CategoriaResource {
 	//O ResponseEntity ENCAPSULA VÁRIAS INFORMAÇÕES DE UMA RESPOSTA HTTP PARA O SERVIÇO REST
 	//O PARÂMETRO {id} SERÁ JOGADO NA VARIÁVEL id, POR CONTA DISSO É NECESSÁRIO A ANOTAÇÃO @PathVariable
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Categoria obj = categoriaService.buscar(id);
+	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
+		Categoria obj = categoriaService.find(id);
 		
 		//RESPOSTA OK E O OBJETO NO CORPO
 		return ResponseEntity.ok().body(obj);
@@ -42,6 +42,13 @@ public class CategoriaResource {
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		
 		return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody Categoria obj, @PathVariable Integer id){
+		obj.setId(id);
+		obj = categoriaService.update(obj);
+		return ResponseEntity.noContent().build();
 	}
 	
 }
