@@ -52,3 +52,30 @@ version="2.1">
 </persistence>
 
 ```
+
+<h1>Seção 03 - Operações de CRUD e Casos de Uso</h1>
+
+Validações de dados
+
+* Sem acesso a dados
+	* Sintáticas
+		* Campo não pode ser vazio.
+		* Valor numérico mínimo e máximo.
+		* Comprimento de string mínimo e máximo.
+		* Somente dígitos.
+		* Padrão (expressão regular): (##)-####-####
+	* Outras
+		* Data futura / passada.
+	* Mais de um campo
+		* Confirmação de senha igual à senha.
+
+* Com acesso a dados
+	* Email não pode ser repetido.
+	* Cada cliente pode cadastrar no máximo três cupons por mês.
+
+Entidade Categoria:
+
+* Validações sintáticas
+	* Nome não pode ser vazio.
+	* Nome deve conter entre 5 e 80 caracteres.
+
