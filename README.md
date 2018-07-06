@@ -79,3 +79,28 @@ Entidade Categoria:
 	* Nome não pode ser vazio.
 	* Nome deve conter entre 5 e 80 caracteres.
 
+<h2>Nivelamento sobre SQL e JPQL</h2>
+
+* JPQL
+	* Linguagem de consulta da JPA.
+	* Similar à SQL, porém as consultas são expressas em "nível" de objetos.
+	* É obrgatória a atribuição de um "alias" (apelido) aos objetos pretendidos na consulta.
+		* SELECT * FROM CLIENTE -> retorna um resultset com os dados da tabela CLIENTE
+		* SELECT obj FROM Cliente obj -> retorna um List<Cliente>
+
+<h2>Modelo Orientado a Objetos (Diagrama de Classes) x Modelo Relacional</h2>
+
+* Existem certas diferenças entre os dois modelos.
+
+<img src="imgs/06.PNG"/>
+
+* Consultas Simples
+	* Produtos cuja categoria possui id = 1
+	* SQL : SELECT * FROM PRODUTO WHERE CATEGORIA_ID = 1;
+	* JPQL : SELECT obj FROM Produto obj WHERE obj.categoria.id = 1;
+
+* Junção Simples
+	* Produtos cuja categoria possui nome 'Informática'
+	* SQL : SELECT PRODUTO.* FROM PRODUTO, CATEGORIA WHERE PRODUTO.CATEGORIA_ID = CATEGORIA.ID AND CATEGORIA.NOME = 'Informática'
+
+
