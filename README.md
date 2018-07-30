@@ -104,3 +104,39 @@ Entidade Categoria:
 	* SQL : SELECT PRODUTO.* FROM PRODUTO, CATEGORIA WHERE PRODUTO.CATEGORIA_ID = CATEGORIA.ID AND CATEGORIA.NOME = 'Informática'
 
 
+* Operação "Produto Cartesiano"
+	* Cruzamento de dados com mais de uma tabela.
+	* SELECT * FROM PRODUTO, CATEGORIA
+
+<img src="imgs/07.PNG"/>
+
+
+* Operação "Junção":
+	* SELECT * FROM PRODUTO, CATEGORIA WHERE PRODUTO.CATEGORIA_ID = CATEGORIA.ID 
+
+<img src="imgs/08.PNG"/>
+
+SELECT * FROM PRODUTO, CATEGORIA WHERE PRODUTO.CATEGORIA_ID = CATEGORIA.ID AND CATEGORIA.NOME = 'Informática'
+
+<img src="imgs/09.PNG"/>
+
+* SQL: 
+	* SELECT PRODUTO.* FROM PRODUTO, CATEGORIA WHERE PRODUTO.CATEGORIA_ID = CATEGORIA.ID AND CATEGORIA.NOME = 'Informática'
+	* Com Inner Join: SELECT * FROM PRODUTO INNER JOIN CATEGORIA cat ON PRODUTO.CATEGORIA_ID = cat.ID WHERE cat.NOME = 'Informática'
+
+JPQL: SELECT obj FROM Produto obj WHERE obj.categoria.nome = 'Informática'
+
+* Exemplo mais complexo
+	* Recuperar todos os produtos cujo nome contenha um dado string, que pertença a pelo menos uma categoria dentre as categorais de uma dada lista
+
+<img src="imgs/10.PNG"/>
+
+* Consulta o exemplo acima em SQL:  SELECT DISTINCT * FROM PRODUTO INNER JOIN PRODUTO_CATEGORIA cat1 ON PRODUTO.ID = cat1.PRODUTO_ID INNER JOIN CATEGORIA cat2 ON cat1.CATEGORIA_ID = cat2.ID WHERE PRODUTO.NOME LIKE ? AND cat2_.ID in (?, ?) => Substituído por Strings no Java.
+
+* Consulta em JPQL: SELECT DISTINCT obj FROM Produto obj INNER JOIN obj.categorias cat WHERE obj.nome LIKE %:nome% AND cat IN :categorias => Substitúido por Strings e Listas
+
+
+
+
+
+

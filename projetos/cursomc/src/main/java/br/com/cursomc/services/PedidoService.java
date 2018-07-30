@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.cursomc.domain.Categoria;
 import br.com.cursomc.domain.Pedido;
 import br.com.cursomc.repositories.PedidoRepository;
 import br.com.cursomc.services.exceptions.ObjectNotFoundException;
@@ -20,7 +19,7 @@ public class PedidoService {
 	public Pedido buscar(Integer id) {
 		Optional<Pedido> obj = pedidoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Pedido.class.getName()));
 	}
 	
 	public void salvarTodos(List<Pedido> listaPedidos) {
