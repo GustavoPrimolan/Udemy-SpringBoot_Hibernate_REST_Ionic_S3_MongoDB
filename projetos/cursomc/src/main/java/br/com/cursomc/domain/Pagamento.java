@@ -11,11 +11,16 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import br.com.cursomc.domain.enums.EstadoPagamento;
 
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED) //HERANÇA / UMA TABELA PARA CADA
+//HERANÇA / UMA TABELA PARA CADA HERANÇA
+@Inheritance(strategy=InheritanceType.JOINED) 
+//NO JSON SERÁ ENVIADO UM PARÂMETRO INFORMANDO QUAL É A INSTANCIA DESSA CLASSE
+//NO PARÂMETRO @type
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")
 public abstract class Pagamento implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
