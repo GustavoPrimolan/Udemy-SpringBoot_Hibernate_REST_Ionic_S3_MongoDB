@@ -1,20 +1,38 @@
-package br.com.cursomc;
+package br.com.cursomc.services;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@SpringBootApplication
-public class CursomcApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(CursomcApplication.class, args);
-	}
-}
+import br.com.cursomc.domain.Categoria;
+import br.com.cursomc.domain.Cidade;
+import br.com.cursomc.domain.Cliente;
+import br.com.cursomc.domain.Endereco;
+import br.com.cursomc.domain.Estado;
+import br.com.cursomc.domain.ItemPedido;
+import br.com.cursomc.domain.Pagamento;
+import br.com.cursomc.domain.PagamentoComBoleto;
+import br.com.cursomc.domain.PagamentoComCartao;
+import br.com.cursomc.domain.Pedido;
+import br.com.cursomc.domain.Produto;
+import br.com.cursomc.domain.enums.EstadoPagamento;
+import br.com.cursomc.domain.enums.TipoCliente;
+import br.com.cursomc.repositories.CategoriaRepository;
+import br.com.cursomc.repositories.CidadeRepository;
+import br.com.cursomc.repositories.ClienteRepository;
+import br.com.cursomc.repositories.EnderecoRepository;
+import br.com.cursomc.repositories.EstadoRepository;
+import br.com.cursomc.repositories.ItemPedidoRepository;
+import br.com.cursomc.repositories.PagamentoRepository;
+import br.com.cursomc.repositories.PedidoRepository;
+import br.com.cursomc.repositories.ProdutoRepository;
 
-/*
-//CommandLineRunner PERMITE IMPLEMENTAR UM MÉTODO QUE SERÁ POSSÍVEL INSTANCIAR QUANDO A APLICAÇÃO STARTAR
-public class CursomcApplication implements CommandLineRunner{
-
+//PASSA A SER UM COMPONENTE DO SPRING COM @Service
+@Service
+public class DBService {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
@@ -42,12 +60,8 @@ public class CursomcApplication implements CommandLineRunner{
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
 	
-	public static void main(String[] args) {
-		SpringApplication.run(CursomcApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
+	
+	public void instantiateTestDataBase() throws ParseException {
 		Categoria cat1 = new Categoria(null, "Informática");
 		Categoria cat2 = new Categoria(null, "Escritório");
 		Categoria cat3 = new Categoria(null, "Cama, mesa e banho");
@@ -150,9 +164,6 @@ public class CursomcApplication implements CommandLineRunner{
 		p3.getItens().addAll(Arrays.asList(ip2));
 		
 		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3));
-		
 	}
 	
-	
 }
-*/
