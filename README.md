@@ -135,7 +135,16 @@ JPQL: SELECT obj FROM Produto obj WHERE obj.categoria.nome = 'Informática'
 
 * Consulta em JPQL: SELECT DISTINCT obj FROM Produto obj INNER JOIN obj.categorias cat WHERE obj.nome LIKE %:nome% AND cat IN :categorias => Substitúido por Strings e Listas
 
+<h1>Seção 04 -Banco de Dados MySQL e Implatação no Heroku</h1>
 
+* Comandos Heroku:
+	* heroku login
+
+* Fazer o dump do projeto para jogar no Heroku.
+* Guia completo nos materiais complementares.
+
+* Após deixar o heroku no git remote do projeto.
+* executar o comando: git push heroku master //JOGA A APPLICAÇÃO NO HEROKU
 
 
 
