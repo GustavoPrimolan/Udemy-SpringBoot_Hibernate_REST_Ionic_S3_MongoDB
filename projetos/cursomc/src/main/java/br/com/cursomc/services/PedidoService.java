@@ -38,6 +38,10 @@ public class PedidoService {
 	@Autowired
 	private ClienteService clienteService;
 	
+	//COMO É UMA CLASSE ABSTRATA ESTÁ SENDO GERENCIADA NA CLASSE CONFIG
+	@Autowired
+	private EmailService emailService;
+	
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = pedidoRepository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
@@ -71,7 +75,7 @@ public class PedidoService {
 		}
 		
 		itemPedidoRepository.saveAll(obj.getItens());
-		System.out.println(obj);
+		emailService.sendOrderConfirmationEmail(obj);
 		return obj;
 	}
 	
